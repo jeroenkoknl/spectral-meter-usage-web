@@ -21,6 +21,8 @@ function main() {
 
     const app = express();
 
+    app.use(express.static('dist'));
+
     app.get('/api/measurements', (req, res, next) => {
         runGetMeasurements((err, measurements) => {
             if (err) {
@@ -33,8 +35,9 @@ function main() {
             }
         })
     });
-    app.listen(3000, () => {
-        console.log("Server running on port 3000");
+    const port = process.env.PORT || 8080
+    app.listen(port, () => {
+        console.log(`Server running on port ${port}`);
     });
 }
 
