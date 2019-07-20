@@ -99,7 +99,7 @@ proto.main.Measurement.deserializeBinaryFromReader = function(msg, reader) {
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setTimestamp(value);
       break;
     case 2:
@@ -137,7 +137,7 @@ proto.main.Measurement.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getTimestamp();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeInt64(
       1,
       f
     );
@@ -153,7 +153,7 @@ proto.main.Measurement.serializeBinaryToWriter = function(message, writer) {
 
 
 /**
- * optional int32 timestamp = 1;
+ * optional int64 timestamp = 1;
  * @return {number}
  */
 proto.main.Measurement.prototype.getTimestamp = function() {
