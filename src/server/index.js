@@ -10,7 +10,6 @@ function runGetMeasurements(callback) {
     const measurements = [];
     const call = client.getMeasurements( new messages.GetMeasurementsRequest());
     call.on('data', function(measurement) {
-        console.log('Found measurement:', measurement.getTimestamp(), measurement.getMetervalue())
         measurements.push(measurement);
     });
     call.on('end', () => callback(null, measurements));
@@ -29,7 +28,7 @@ function main() {
                 next(err);
             } else {
                 res.json(measurements.map((measurement) => ({ 
-                    timestamp: measurement.getTimestamp(),
+                    timestamp: new Date(measurement.getTimestamp()*1000).toISOString(),
                     metervalue: measurement.getMetervalue(),
                 })));
             }
