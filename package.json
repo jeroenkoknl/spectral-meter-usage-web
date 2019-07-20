@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "express": "^4.17.1",
     "google-protobuf": "^3.9.0",
     "grpc": "^1.22.2"
   },
