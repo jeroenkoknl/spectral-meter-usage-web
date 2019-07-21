@@ -50,7 +50,7 @@ The web framework [Express](https://expressjs.com/) is used to serve both the We
 
 # Docker
 
-Even though I have not been able to fully automate the build and deployment process this is a `Dockerfile` included to run the server in a container.
+Even though I have not been able to fully automate the build and deployment process this is a [Dockerfile](./Dockerfile) included to run the server in a container.
 
 To build the Docker image, you could run the folowing command:
 
